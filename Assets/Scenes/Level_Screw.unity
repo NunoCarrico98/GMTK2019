@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderCam: {fileID: 1058896842}
-  colorToFill: {r: 0, g: 0, b: 0, a: 1}
+  colorToFill: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -290,7 +290,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -407,6 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0ec298f51059046baecbc20c62b2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleAmount: 0.05
+  scaleDuration: 0.1
 --- !u!1001 &7294153508316277993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,6 +496,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer

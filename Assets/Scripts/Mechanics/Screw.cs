@@ -26,14 +26,14 @@ public class Screw : MonoBehaviour
 	{
 		if (Input.GetMouseButton(0))
 		{
-			float previousRot = transform.rotation.z;
-
 			Vector3 mousePos = Input.mousePosition;
 			mousePos = cam.ScreenToWorldPoint(mousePos);
+
 
 			Vector2 direction = mousePos - transform.position;
 			dir = direction;
 
+			float previousRot = transform.rotation.z;
 			transform.up = direction;
 
 			ScaleSquare(previousRot);
