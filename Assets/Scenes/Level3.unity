@@ -163,11 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85be0c274f5393a46bcc1fb08040a706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winCheckers:
-  - {fileID: 1377599798}
-  - {fileID: 819592530}
-  - {fileID: 2096550927}
-  - {fileID: 1985370180}
   renderCam: {fileID: 1058896842}
   colorToFill: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &519420028
@@ -254,12 +249,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &819592530 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153509124280763, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 7294153508316277993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1058896839
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +317,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: -5
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -343,12 +332,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1377599798 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153507542724063, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 7294153508316277993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1723325979
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,18 +398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1985370180 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153508143117485, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 7294153508316277993}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2096550927 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153508254300390, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 7294153508316277993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2107036852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7294153508563393989, guid: ad39687eac066444f86b1849dcfa9b47,
@@ -469,6 +440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmallSquare
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294153508563393989, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7294153508563394009, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
@@ -525,10 +501,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294153508143117482, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294153507542724060, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294153508254300391, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 959854012951590162, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: playSpawnAnim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad39687eac066444f86b1849dcfa9b47, type: 3}

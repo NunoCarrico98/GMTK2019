@@ -19,7 +19,6 @@ public class Drag : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		EnableDisableCursor();
 		col.enabled = false;
 	}
 
@@ -40,10 +39,5 @@ public class Drag : MonoBehaviour
 	private void OnMouseUp()
 	{
 		col.enabled = true;
-	}
-
-	private void EnableDisableCursor()
-	{
-		Cursor.visible = !Cursor.visible;
 	}
 }

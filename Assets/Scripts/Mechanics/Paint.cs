@@ -6,8 +6,6 @@ public class Paint : MonoBehaviour
 {
 	[SerializeField] private GameObject square;
 
-	private Camera cam;
-
 	private void OnMouseDrag()
 	{
 		if (Input.GetMouseButton(0))

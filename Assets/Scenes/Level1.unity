@@ -163,11 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85be0c274f5393a46bcc1fb08040a706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winCheckers:
-  - {fileID: 1898184335}
-  - {fileID: 1898184334}
-  - {fileID: 1898184333}
-  - {fileID: 1898184332}
   renderCam: {fileID: 1349599171}
   colorToFill: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &519420028
@@ -300,7 +295,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: -5
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -492,27 +487,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleAmount: 1
   scaleDuration: 0.2
---- !u!4 &1898184332 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153508143117485, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898184329}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1898184333 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153508254300390, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898184329}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1898184334 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153509124280763, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898184329}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1898184335 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294153507542724063, guid: ad39687eac066444f86b1849dcfa9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898184329}
-  m_PrefabAsset: {fileID: 0}
