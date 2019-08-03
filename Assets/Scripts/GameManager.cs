@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private Transform[] winCheckers;
+	[SerializeField] private Camera renderCam;
 
 	private Camera cam;
 
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	// Check Level Win
-	public void CheckWin()
+	/*public void CheckWin()
 	{
 		if (cameraCorners.All(x => x == true))
 		{
@@ -42,5 +43,27 @@ public class GameManager : MonoBehaviour
 				if (!bounds.Contains(winCheckers[i].position))
 					cameraCorners[i] = true;
 		}
+	}*/
+
+	public void CheckWin()
+	{
+		Texture2D tex = new Texture2D(1920, 1080, TextureFormat.RGB24, false);
+		Rect rectReadPicture = new Rect(0, 0, 1920, 1080);
+
+		// Initialize and render
+		RenderTexture rt = new RenderTexture(1920, 1080, 24);
+		renderCam.targetTexture = rt;
+		renderCam.Render();
+		RenderTexture.active = rt;
+
+		// Read pixels
+		tex.ReadPixels(rectReadPicture, 0, 0);
+
+		// Clean up
+		renderCam.targetTexture = null;
+		RenderTexture.active = null; // added to avoid errors 
+		DestroyImmediate(rt);
 	}
+
+
 }
