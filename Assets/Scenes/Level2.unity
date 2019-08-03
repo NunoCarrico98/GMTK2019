@@ -169,6 +169,7 @@ MonoBehaviour:
   - {fileID: 652784668}
   - {fileID: 652784667}
   renderCam: {fileID: 957305554}
+  colorToFill: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
