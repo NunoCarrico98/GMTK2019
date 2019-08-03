@@ -7,17 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] private Transform[] winCheckers;
 	[SerializeField] private Camera renderCam;
+	[SerializeField] private Color colorToFill;
 
 	private Camera cam;
-
-	private bool[] cameraCorners;
 
 	private void Awake()
 	{
 		cam = Camera.main;
-		cameraCorners = new bool[4];
 	}
 
 	private void Update()
@@ -25,45 +22,36 @@ public class GameManager : MonoBehaviour
 		CheckWin();
 	}
 
-	// Check Level Win
-	/*public void CheckWin()
+	private void CheckWin()
 	{
-		if (cameraCorners.All(x => x == true))
-		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		}
-		else
-		{
-			Bounds bounds = new Bounds();
+		int width = 256;
+		int height = 144;
 
-			bounds.center = Vector2.zero;
-			bounds.size = new Vector2(cam.orthographicSize * 3.5f, cam.orthographicSize * 2);
+		Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+		Rect rectReadPicture = new Rect(0, 0, width, height);
 
-			for (int i = 0; i < cameraCorners.Length; i++)
-				if (!bounds.Contains(winCheckers[i].position))
-					cameraCorners[i] = true;
-		}
-	}*/
-
-	public void CheckWin()
-	{
-		Texture2D tex = new Texture2D(1920, 1080, TextureFormat.RGB24, false);
-		Rect rectReadPicture = new Rect(0, 0, 1920, 1080);
-
-		// Initialize and render
-		RenderTexture rt = new RenderTexture(1920, 1080, 24);
+		RenderTexture rt = new RenderTexture(width, height, 24);
 		renderCam.targetTexture = rt;
 		renderCam.Render();
 		RenderTexture.active = rt;
 
-		// Read pixels
 		tex.ReadPixels(rectReadPicture, 0, 0);
+		tex.Apply();
 
-		// Clean up
+		List<Color> colors = new List<Color>();
+
+		for (int i = 0; i < width; i++)
+			for (int j = 0; j < height; j++)
+			{
+				Color color = tex.GetPixel(i, j);
+				colors.Add(color);
+			}
+
+		if (colors.All(c => c == colorToFill))
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 		renderCam.targetTexture = null;
 		RenderTexture.active = null; // added to avoid errors 
 		DestroyImmediate(rt);
 	}
-
-
 }
