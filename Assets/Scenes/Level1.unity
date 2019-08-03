@@ -259,7 +259,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1349599173}
   - component: {fileID: 1349599171}
-  - component: {fileID: 1349599172}
   m_Layer: 0
   m_Name: RenderTextureCamera
   m_TagString: MainCamera
@@ -310,14 +309,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1349599172
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349599170}
-  m_Enabled: 1
 --- !u!4 &1349599173
 Transform:
   m_ObjectHideFlags: 0
@@ -485,5 +476,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d86377c865352d4ca81a824718f2757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleAmount: 1
-  scaleDuration: 0.2
+  scaleAmount: 0.1
+  scaleDuration: 10

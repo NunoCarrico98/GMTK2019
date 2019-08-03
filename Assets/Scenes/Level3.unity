@@ -259,7 +259,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1058896840}
   - component: {fileID: 1058896842}
-  - component: {fileID: 1058896841}
   m_Layer: 0
   m_Name: RenderTextureCamera
   m_TagString: MainCamera
@@ -281,14 +280,6 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1058896841
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058896839}
-  m_Enabled: 1
 --- !u!20 &1058896842
 Camera:
   m_ObjectHideFlags: 0
@@ -444,7 +435,7 @@ PrefabInstance:
     - target: {fileID: 7294153508563393989, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7294153508563394009, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
@@ -504,27 +495,27 @@ PrefabInstance:
     - target: {fileID: 7294153508143117482, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7294153507542724060, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7294153508254300391, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 959854012951590162, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: playSpawnAnim
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad39687eac066444f86b1849dcfa9b47, type: 3}

@@ -9,15 +9,26 @@ public class Grow : MonoBehaviour
 	[SerializeField] private float scaleDuration;
 
 	private float scaleDesired = 1;
+	private bool growing = true;
 
 	private void OnMouseDown()
 	{
-		GrowSquare();
+		growing = true;
+	}
+
+	private void OnMouseUp()
+	{
+		growing = false;
+	}
+
+	private void Update()
+	{
+		if (growing) GrowSquare();
 	}
 
 	public void GrowSquare()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0))
 		{
 			scaleDesired += scaleAmount;
 			transform.DOScale(scaleDesired, scaleDuration);
