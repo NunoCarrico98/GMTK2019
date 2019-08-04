@@ -21,6 +21,8 @@ public class VerticesDetection : MonoBehaviour
 
     public UnityEvent onWin;
 
+    private bool finished = false;
+
     private void Start()
     {
         filter = GetComponent<MeshFilter>();
@@ -31,6 +33,9 @@ public class VerticesDetection : MonoBehaviour
 
     private void Update()
     {
+        if (finished)
+            return;
+
         if (!isDragging)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -47,7 +52,7 @@ public class VerticesDetection : MonoBehaviour
         {
             currentVertices[closerVertice] = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            if(Input.GetKeyUp(KeyCode.Mouse0))
+            if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 closerVertice = -1;
                 isDragging = false;
@@ -64,49 +69,88 @@ public class VerticesDetection : MonoBehaviour
 
         mesh.SetVertices(smoothPositions);
 
-        bool win = true;
+        bool[] winConditions = new bool[4];
         for (int i = 0; i < smoothPositions.Count; i++)
         {
             Vector3 v = cam.WorldToViewportPoint(smoothPositions[i]);
-            if (cam.rect.Contains(v))
+
+            if (v.x > 1 && v.y > 1)
+                winConditions[0] = true;
+            else if (v.x < 0 && v.y > 1)
+                winConditions[1] = true;
+            else if (v.x > 1 && v.y < 0)
+                winConditions[2] = true;
+            else if (v.x < 0 && v.y < 0)
+                winConditions[3] = true;
+        }
+
+        bool matchAll = true;
+        for (int i = 0; i < winConditions.Length; i++)
+        {
+            if (!winConditions[i])
             {
-                win = false;
+                matchAll = false;
                 break;
             }
         }
 
-        if (win)
+        if (matchAll)
             Won();
     }
 
 
     private void Won()
     {
+        finished = true;
         onWin.Invoke();
         print("YOU WIN :D");
     }
 
+    private void OnDrawGizmos()
+    {
+        if(closerVertice != -1)
+            Gizmos.DrawSphere(GetScaledVertices()[closerVertice], 0.2f);
+    }
+
+    private Vector3[] GetScaledVertices()
+    {
+        Vector3[] scaled = new Vector3[4];
+        for (int i = 0; i < 4; i++)
+        {
+            scaled[i] = Vector3.Scale(filter.transform.localScale, mesh.vertices[i]);
+        }
+
+        return scaled;
+    }
+
     private int GetClosestFromCursor(Vector3[] vertices, float maxDistance)
     {
-        Vector2 mousePos = Input.mousePosition;
+        
+        int closer = -1;
+        Vector3 hitPoint = GetMouseOnPlane();
 
-        var debug = "mouse: " + mousePos;
-
-        int closerVertice = -1;
         float closerDistance = float.MaxValue;
         for (int i = 0; i < vertices.Length; i++)
         {
-            Vector2 vPos = cam.WorldToScreenPoint(vertices[i]);
-            var distance = Vector2.Distance(vPos, mousePos);
+            var distance = Vector2.Distance(hitPoint, vertices[i]);
 
             if (distance <= maxDistance && distance < closerDistance)
             {
-                closerVertice = i;
+                closer = i;
                 closerDistance = distance;
-                break;
             }
         }
 
-        return closerVertice;
+        return closer;
+    }
+
+    private Vector3 GetMouseOnPlane()
+    {
+        Plane plane = new Plane(mesh.vertices[0], mesh.vertices[1], mesh.vertices[2]);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        float dist;
+        int closer = -1;
+        plane.Raycast(ray, out dist);
+        return ray.origin + ray.direction * dist;
     }
 }
