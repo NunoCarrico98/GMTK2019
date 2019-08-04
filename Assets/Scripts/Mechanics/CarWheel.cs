@@ -7,8 +7,11 @@ public class CarWheel : MonoBehaviour
 {
 	[SerializeField] private float maxRotationSpeed;
 	[SerializeField] private float accelerationMultiplier;
+    [SerializeField] private float maxPitch = 1.5f;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip decelerate;
 
-	[Header("Circle and Cylinder")]
+    [Header("Circle and Cylinder")]
 	[SerializeField] private SpriteRenderer circleSpriteRenderer;
 	[SerializeField] private float fadeDuration;
 	[SerializeField] private float timeToChangeSprite;
@@ -24,6 +27,7 @@ public class CarWheel : MonoBehaviour
 	private void Awake()
 	{
 		squareSpriteRenderer = GetComponent<SpriteRenderer>();
+        source = GetComponent<AudioSource>();
 	}
 
 	private void OnMouseDown()
@@ -52,6 +56,11 @@ public class CarWheel : MonoBehaviour
 	{
 		rotationSpeed += accelerationMultiplier;
 		if (rotationSpeed > maxRotationSpeed) rotationSpeed = maxRotationSpeed;
+
+        float lerp = Mathf.InverseLerp(0, maxRotationSpeed, rotationSpeed);
+        float pitch = Mathf.Lerp(1, maxPitch, lerp);
+        source.pitch = pitch;
+
 		if (rotationSpeed == maxRotationSpeed && !increaseTimer)
 		{
 			StopAllCoroutines();
@@ -65,7 +74,12 @@ public class CarWheel : MonoBehaviour
 	{
 		rotationSpeed -= accelerationMultiplier;
 		if (rotationSpeed < 0) rotationSpeed = 0;
-		if (rotationSpeed != maxRotationSpeed && !decreaseTimer)
+
+        float lerp = Mathf.InverseLerp(0, maxRotationSpeed, rotationSpeed);
+        float pitch = Mathf.Lerp(1, maxPitch, lerp);
+        source.pitch = pitch;
+
+        if (rotationSpeed != maxRotationSpeed && !decreaseTimer)
 		{
 			StopAllCoroutines();
 			decreaseTimer = true;
@@ -115,6 +129,12 @@ public class CarWheel : MonoBehaviour
 
 			circleSpriteRenderer.DOFade(1, fadeDuration);
 			squareSpriteRenderer.DOFade(0, fadeDuration);
+
+            source.pitch = 1;
+            source.clip = decelerate;
+            source.loop = false;
+            source.time = 0;
+            source.Play();
 		}
 	}
 
