@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Prism : MonoBehaviour
 {
@@ -127,5 +129,12 @@ public class Prism : MonoBehaviour
     private void FinishStage()
     {
         onFinishBreakCube.Invoke();
+        StartCoroutine(NextScene());
+    }
+
+    private IEnumerator NextScene()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
