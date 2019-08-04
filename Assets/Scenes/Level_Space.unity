@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleDesired: 12
-  scaleDuration: 60
+  scaleDuration: 70
 --- !u!82 &2107036854
 AudioSource:
   m_ObjectHideFlags: 0
@@ -593,11 +593,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153508143117482, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
@@ -613,6 +608,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
