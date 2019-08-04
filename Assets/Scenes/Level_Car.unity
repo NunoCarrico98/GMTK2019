@@ -540,7 +540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713683712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.53, z: 0}
+  m_LocalPosition: {x: 0, y: 14.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -559,6 +559,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDuration: 0.5
+  speed: 50
+  source: {fileID: 2107036858}
+  carIdle: {fileID: 8300000, guid: 22d4cb8403ee1c24cb11825cbfe7a113, type: 3}
 --- !u!1 &1723325979
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDuration: 0.5
+  speed: 50
+  source: {fileID: 2107036858}
+  carIdle: {fileID: 8300000, guid: 22d4cb8403ee1c24cb11825cbfe7a113, type: 3}
 --- !u!82 &2107036858
 AudioSource:
   m_ObjectHideFlags: 0
@@ -675,11 +681,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e4fc431d847b734428c0bf890ce53593, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 1c6780aed5f3de14f823fef2ccf328c1, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -791,7 +797,7 @@ PrefabInstance:
     - target: {fileID: 7294153508563394009, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.53
+      value: 14.19
       objectReference: {fileID: 0}
     - target: {fileID: 7294153508563394009, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
@@ -848,11 +854,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153508143117482, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
@@ -868,6 +869,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
