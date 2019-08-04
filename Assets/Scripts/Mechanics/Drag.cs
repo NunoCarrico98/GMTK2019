@@ -9,7 +9,6 @@ public class Drag : MonoBehaviour
 
 	private float startPosX;
 	private float startPosY;
-	private bool isBeingHeld = false;
 
 	private void Awake()
 	{

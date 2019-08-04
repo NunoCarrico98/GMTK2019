@@ -44,6 +44,8 @@ public class CarWheel : MonoBehaviour
 
 		if (increaseTimer) StartCoroutine(IncreaseTimer());
 		if (decreaseTimer) StartCoroutine(DecreaseTimer());
+
+		ChangeObjects();
 	}
 
 	private void Accelerate()
@@ -88,7 +90,7 @@ public class CarWheel : MonoBehaviour
 			countTimeToChange += Time.deltaTime;
 			yield return null;
 		}
-		ChangeObjects();
+		ChangeSprites();
 	}
 
 	private IEnumerator DecreaseTimer()
@@ -105,7 +107,7 @@ public class CarWheel : MonoBehaviour
 		
 	}
 
-	private void ChangeObjects()
+	private void ChangeSprites()
 	{
 		if (countTimeToChange >= timeToChangeSprite)
 		{
@@ -113,18 +115,16 @@ public class CarWheel : MonoBehaviour
 
 			circleSpriteRenderer.DOFade(1, fadeDuration);
 			squareSpriteRenderer.DOFade(0, fadeDuration);
+		}
+	}
 
-			/*
-			 * 
-			 * FIX THIS SHIT
-			 * 
-			 * 
-			if (circleSpriteRenderer.color.a == 1)
-			{
-				cylinder.SetActive(true);
-				circleSpriteRenderer.gameObject.SetActive(false);
-				gameObject.SetActive(false);
-			}*/
+	private void ChangeObjects()
+	{
+		if (circleSpriteRenderer.color.a >= .95f)
+		{
+			cylinder.SetActive(true);
+			circleSpriteRenderer.gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
 	}
 }
