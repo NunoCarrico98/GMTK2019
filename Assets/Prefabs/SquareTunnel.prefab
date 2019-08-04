@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b9d25d1252cf14886f520c066b5301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSquares: 47
+  prefab: {fileID: 3036416169596817420, guid: c7f898e4769f4a948814137e2d9e6c6e, type: 3}
   materials:
   - {fileID: 2100000, guid: 025cdc111993d24459549bb63fbefd33, type: 2}
   - {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
   scaleFactor: 0.9
   rotationAmount: 2
-  desiredScale: 25
+  desiredScale: 15
   initialScaleDuration: 5
   fastScaleDuration: 0.5
 --- !u!1001 &5699742467591835081
