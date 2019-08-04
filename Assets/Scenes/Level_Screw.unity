@@ -407,8 +407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0ec298f51059046baecbc20c62b2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleAmount: 0.05
-  scaleDuration: 0.1
+  scaleAmount: 0.02
+  scaleDuration: 0.5
+  angle: 0
 --- !u!1001 &7294153508316277993
 PrefabInstance:
   m_ObjectHideFlags: 0
