@@ -5,15 +5,26 @@ using DG.Tweening;
 
 public class Scale : MonoBehaviour
 {
+	[SerializeField] private Transform square;
 	[SerializeField] private float scaleDuration;
-	private bool scale = true;
+	[SerializeField] private bool scale = false;
 
-	private void OnMouseDown()
+	private Tunnel tunnel;
+
+	private void Awake()
 	{
-		if (scale)
-		{
-			scale = false;
-			transform.DOScale(5, scaleDuration);
-		}
+		tunnel = square.GetComponent<Tunnel>();
 	}
+
+	private void Start()
+	{
+		tunnel.enabled = false;
+		square.DOScale(5, scaleDuration);
+	}
+
+	private void Update()
+	{
+		if (square.localScale.z == 5) tunnel.enabled = true;
+	}
+
 }
