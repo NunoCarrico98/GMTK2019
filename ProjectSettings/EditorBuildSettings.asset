@@ -12,9 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Ballon.unity
     guid: 38eb28d10cd75004a8be83f4160ad91a
   - enabled: 1
+    path: Assets/Scenes/Level_Brush.unity
+    guid: ecaba8750dc3e4c4b907bce4d8c0aedb
+  - enabled: 1
+    path: Assets/Scenes/Level_Vertex.unity
+    guid: e08d07a961b9cf1409fb7bd585c72757
+  - enabled: 1
+    path: Assets/Scenes/Level_Screw.unity
+    guid: 1d87665d31f84f94788dbe0be46ede81
+  - enabled: 1
+    path: Assets/Scenes/Level_Gun.unity
+    guid: 1de39072a50364849a3145dd8ca8b41e
+  - enabled: 1
     path: Assets/Scenes/Level_Fall.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level_Brush.unity
-    guid: ecaba8750dc3e4c4b907bce4d8c0aedb
+    path: Assets/Scenes/Level_Car.unity
+    guid: 0517a98154e1a9b4680fd420f1406a3a
   m_configObjects: {}

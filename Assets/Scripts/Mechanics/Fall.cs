@@ -9,8 +9,6 @@ public class Fall : MonoBehaviour
 
 	private void OnMouseUp()
 	{
-		EnableDisableCursor();
-
 		Vector3 rot = new Vector3(0, 0, 360);
 		Vector3 rot2 = new Vector3(0, 0, 0);
 
@@ -23,10 +21,5 @@ public class Fall : MonoBehaviour
 			.Append(transform.DORotate(rot2, 0))
 			.Append(transform.DOScale(12, .5f))
 			.SetAutoKill(true);
-	}
-
-	private void EnableDisableCursor()
-	{
-		Cursor.visible = !Cursor.visible;
 	}
 }
