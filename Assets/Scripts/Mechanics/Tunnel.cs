@@ -20,20 +20,32 @@ public class Tunnel : MonoBehaviour
 
     private TunnelManager tunnelManager;
 	private bool doOnce = false;
+	private bool once = false;
+	private bool canClick = true;
 
 	public int MatIndex { get; set; } = 1;
 	public int OrderInLayer { get; set; } = 1;
 	public int SpawnedSquares { get; set; } = 1;
-	public bool CanClick { get; set; } = true;
 
 	private void Awake()
 	{
 		tunnelManager = FindObjectOfType<TunnelManager>();
 	}
 
+	private void Start()
+	{
+		if (gameObject.name == "SquareTunnel")
+			canClick = false;
+	}
+
 	private void Update()
 	{
 		SpawnSquare();
+		if (transform.localScale.x == 5 && !once)
+		{
+			once = true;
+			canClick = true;
+		}
 	}
 
     private void PlaySound()
@@ -45,12 +57,12 @@ public class Tunnel : MonoBehaviour
 	private void SpawnSquare()
 	{
 		if (Input.GetMouseButtonDown(0) &&
-			CanClick && 
+			canClick && 
 			SpawnedSquares != tunnelManager.MaxSquares)
 		{
-			CanClick = false;
+			canClick = false;
 
-			GameObject squareInst = Instantiate(prefab, transform.position, transform.rotation);
+			GameObject squareInst = Instantiate(gameObject, transform.position, transform.rotation);
 			squareInst.transform.localScale = transform.localScale;
 			squareInst.GetComponent<SpriteRenderer>().material = materials[MatIndex];
 			squareInst.GetComponent<SpriteRenderer>().sortingOrder = OrderInLayer;

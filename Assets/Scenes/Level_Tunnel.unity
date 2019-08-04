@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: source
       value: 
       objectReference: {fileID: 1647507135}
+    - target: {fileID: -4060359626605510731, guid: c7f898e4769f4a948814137e2d9e6c6e,
+        type: 3}
+      propertyPath: canClick
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3036416169596817420, guid: c7f898e4769f4a948814137e2d9e6c6e,
         type: 3}
       propertyPath: m_Name

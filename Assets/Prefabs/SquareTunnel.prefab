@@ -18,9 +18,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
   scaleFactor: 0.9
   rotationAmount: 2
+  canClick: 1
   desiredScale: 15
   initialScaleDuration: 5
   fastScaleDuration: 0.5
+  source: {fileID: 0}
+  clips: []
 --- !u!1001 &5699742467591835081
 PrefabInstance:
   m_ObjectHideFlags: 0

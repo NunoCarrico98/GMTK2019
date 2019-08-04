@@ -7,17 +7,29 @@ public class Grow : MonoBehaviour
 {
 	[SerializeField] private float scaleAmount;
 	[SerializeField] private float scaleDuration;
+	[SerializeField] private AudioSource source;
 
 	private float scaleDesired = 1;
 	private bool growing = true;
+	private bool play = true;
 
 	private void OnMouseDown()
 	{
+		if (play)
+		{
+			play = false;
+			source.Play();
+		}
 		growing = true;
 	}
 
 	private void OnMouseUp()
 	{
+		if (!play)
+		{
+			play = true;
+			source.Pause();
+		}
 		growing = false;
 	}
 

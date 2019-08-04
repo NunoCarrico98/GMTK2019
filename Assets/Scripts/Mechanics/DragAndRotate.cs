@@ -40,8 +40,6 @@ public class DragAndRotate : MonoBehaviour
 			transform.Rotate(angle * Time.deltaTime * Input.GetAxisRaw("Mouse Y"), 0, 0);
 			if (transform.eulerAngles.x >= desiredAngle - 5)
 			{
-				transform.eulerAngles = new Vector3(Mathf.Lerp(transform.eulerAngles.x, desiredAngle, angle * Time.deltaTime),
-					transform.eulerAngles.y, transform.eulerAngles.z);
 				rotate = false;
 				StartCoroutine(LoadNextLevel());
 			}

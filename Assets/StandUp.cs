@@ -12,6 +12,8 @@ public class StandUp : MonoBehaviour
     {
 		Vector3 newRot = new Vector3(0,0,0);
 
-		transform.DORotate(newRot, rotateDuration);
+		Sequence seq = DOTween.Sequence();
+		seq.PrependInterval(1f);
+		seq.Append(transform.DORotate(newRot, rotateDuration));
     }
 }
