@@ -256,6 +256,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: initialSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playSpawnAnim
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7294153508563393989, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Name
@@ -321,14 +329,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
-    - target: {fileID: 0}
-      propertyPath: initialSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: playSpawnAnim
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ad39687eac066444f86b1849dcfa9b47, type: 3}
@@ -373,7 +373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 957305556}
   - component: {fileID: 957305554}
-  - component: {fileID: 957305555}
   m_Layer: 0
   m_Name: RenderTextureCamera
   m_TagString: MainCamera
@@ -424,14 +423,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &957305555
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957305553}
-  m_Enabled: 1
 --- !u!4 &957305556
 Transform:
   m_ObjectHideFlags: 0
