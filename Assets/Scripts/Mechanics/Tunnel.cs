@@ -15,7 +15,10 @@ public class Tunnel : MonoBehaviour
 	[SerializeField] private float initialScaleDuration;
 	[SerializeField] private float fastScaleDuration;
 
-	private TunnelManager tunnelManager;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip[] clips;
+
+    private TunnelManager tunnelManager;
 	private bool doOnce = false;
 
 	public int MatIndex { get; set; } = 1;
@@ -33,6 +36,12 @@ public class Tunnel : MonoBehaviour
 		SpawnSquare();
 	}
 
+    private void PlaySound()
+    {
+        var clipIndex = Random.Range(0, clips.Length);
+        source.clip = clips[clipIndex];
+        source.Play();
+    }
 	private void SpawnSquare()
 	{
 		if (Input.GetMouseButtonDown(0) &&
@@ -58,6 +67,8 @@ public class Tunnel : MonoBehaviour
 			squareInst.GetComponent<Tunnel>().SpawnedSquares = SpawnedSquares;
 
 			tunnelManager.AddToList(squareInst);
+
+            PlaySound();
 		}
 	}
 

@@ -542,12 +542,13 @@ MonoBehaviour:
   cameraRotationAxis: {fileID: 2080442645}
   cameraFinalRotation: {x: 0, y: 0, z: 0}
   rotationSpeed: -5
+  cam: {fileID: 1844996933}
   smoothDampTime: 0.4
   smoothDampTimeCube: 0.2
   rotatingPartCubeAxis: {fileID: 3068906998572347451}
   finalCubeParent: {fileID: 5006512736705601510}
   cubeFinalRotation: {x: 0, y: -180, z: -180}
-  cameraFinalPosition: {x: -0.33, y: -0.94, z: -60}
+  cameraFinalPosition: {x: -0.51, y: -0.73, z: -60}
   cubeFinalScale: {x: 0.5, y: 0.5, z: 0.5}
   onFinishRotateCube:
     m_PersistentCalls:
@@ -556,12 +557,34 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onStartBreakCube:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 498dc8853c9649943ade11b7ad5335df, type: 2}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onFinishBreakCube:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0f0d3e086b8299742975edae90d2524c, type: 2}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &2080442645

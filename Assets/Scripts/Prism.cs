@@ -14,7 +14,7 @@ public class Prism : MonoBehaviour
     int stage = 0;
     bool rotatingCamera = false;
 
-    private Camera cam;
+    public Camera cam;
 
     private float rotationPercentage = 0;
     private float smoothDampVelocity;
@@ -43,7 +43,7 @@ public class Prism : MonoBehaviour
     {
         cameraOriginalRotation = cameraRotationAxis.rotation;
         cubeOriginalRotation = rotatingPartCubeAxis.localRotation;
-        cam = FindObjectOfType<Camera>();
+        //cam = FindObjectOfType<Camera>();
         cameraOriginalPosition = cam.transform.localPosition;
     }
 
@@ -126,10 +126,15 @@ public class Prism : MonoBehaviour
             FinishStage();
     }
 
+    private bool finished = false;
     private void FinishStage()
     {
-        onFinishBreakCube.Invoke();
-        StartCoroutine(NextScene());
+        if (!finished)
+        {
+            finished = true;
+            onFinishBreakCube.Invoke();
+            StartCoroutine(NextScene());
+        }
     }
 
     private IEnumerator NextScene()

@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderCam: {fileID: 1058896842}
   colorToFill: {r: 1, g: 1, b: 1, a: 1}
+  checkWin: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab2aaa12ab841f4a88d02762258db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1
+  gravity: 0.3
   dragAndRot: {fileID: 1442436843}
 --- !u!114 &1152301558
 MonoBehaviour:
@@ -439,6 +440,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85e457e18bb7f4ca43ed49310e91c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onStartDrag:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d148df750e9327547a78cff666084e61, type: 2}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1442436839 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 11af0e1bcc7e0be4fb928599fc85319e,
@@ -633,6 +650,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153508143117482, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
@@ -648,11 +670,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7294153508563393990, guid: ad39687eac066444f86b1849dcfa9b47,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e90b5b0acf3a2824fa61aa8c768bddd3, type: 2}
     - target: {fileID: 7294153509124280760, guid: ad39687eac066444f86b1849dcfa9b47,
         type: 3}
       propertyPath: m_Layer
