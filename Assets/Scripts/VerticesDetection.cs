@@ -74,13 +74,13 @@ public class VerticesDetection : MonoBehaviour
         {
             Vector3 v = cam.WorldToViewportPoint(smoothPositions[i]);
 
-            if (v.x > 1 && v.y > 1)
+            if (v.x > 0.99 && v.y > 0.99)
                 winConditions[0] = true;
-            else if (v.x < 0 && v.y > 1)
+            else if (v.x < 0.01 && v.y > 0.99)
                 winConditions[1] = true;
-            else if (v.x > 1 && v.y < 0)
+            else if (v.x > 0.99 && v.y < 0.01)
                 winConditions[2] = true;
-            else if (v.x < 0 && v.y < 0)
+            else if (v.x < 0.01 && v.y < 0.01)
                 winConditions[3] = true;
         }
 
