@@ -127,11 +127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3036416169596817420, guid: c7f898e4769f4a948814137e2d9e6c6e,
-        type: 3}
-      propertyPath: m_Name
-      value: SquareTunnel
-      objectReference: {fileID: 0}
     - target: {fileID: -4060359626605510731, guid: c7f898e4769f4a948814137e2d9e6c6e,
         type: 3}
       propertyPath: clips.Array.size
@@ -182,6 +177,11 @@ PrefabInstance:
       propertyPath: source
       value: 
       objectReference: {fileID: 1647507135}
+    - target: {fileID: 3036416169596817420, guid: c7f898e4769f4a948814137e2d9e6c6e,
+        type: 3}
+      propertyPath: m_Name
+      value: SquareTunnel
+      objectReference: {fileID: 0}
     - target: {fileID: 3036416169596817424, guid: c7f898e4769f4a948814137e2d9e6c6e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -314,9 +314,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSquares: 47
+  waitTime: 5
   desiredSize: 0.01
   decreaseValue: 0.1
-  fasterDecrease: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
