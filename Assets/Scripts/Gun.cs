@@ -57,9 +57,10 @@ public class Gun : MonoBehaviour
             newPos = Vector3.SmoothDamp(transform.position, newPos, ref smoothDampVelocity, smoothSpeed);
             transform.position = newPos;
 
+            bool firstFullPull = fullPull == false;
             fullPull = Mathf.Abs(newPos.x - (originalPosition.x - maxDistance)) < 0.01f;
 
-            if (fullPull)
+            if (fullPull && firstFullPull)
                 onAchieveMaxPull.Invoke();
         }
 
