@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField] private Camera renderCam;
 	[SerializeField] private Color colorToFill;
+    public bool checkWin = true;
 
 	private Camera cam;
 
@@ -19,7 +20,8 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		CheckWin();
+        if(checkWin)
+		    CheckWin();
 	}
 
 	private void CheckWin()
