@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class VerticesDetection : MonoBehaviour
 {
     public float distanceToGrab = 20;
+    public float distance = 1;
 
     private MeshFilter filter;
     private Camera cam;
@@ -35,31 +37,31 @@ public class VerticesDetection : MonoBehaviour
 
     private void Update()
     {
-        if (finished)
-            return;
-
-        if (!isDragging)
+        if (!finished)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (!isDragging)
             {
-                closerVertice = GetClosestFromCursor(currentVertices, distanceToGrab);
-
-                if (closerVertice != -1)
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    isDragging = true;
-                    source.Play();
+                    closerVertice = GetClosestFromCursor(currentVertices, distanceToGrab);
+
+                    if (closerVertice != -1)
+                    {
+                        isDragging = true;
+                        source.Play();
+                    }
                 }
             }
-        }
-        else
-        {
-            currentVertices[closerVertice] = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            else
             {
-                closerVertice = -1;
-                isDragging = false;
-                source.Pause();
+                currentVertices[closerVertice] = cam.ScreenToWorldPoint(Input.mousePosition);
+
+                if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    closerVertice = -1;
+                    isDragging = false;
+                    source.Pause();
+                }
             }
         }
 
@@ -102,10 +104,29 @@ public class VerticesDetection : MonoBehaviour
             Won();
     }
 
+    private void Stretch()
+    {
+        var vertices = GetScaledVertices();
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            var direction = (transform.position - vertices[i]).normalized;
+            mesh.vertices[i] += direction * distance;
+        }
+
+        mesh.SetVertices(new List<Vector3>(vertices));
+    }
 
     private void Won()
     {
+        source.Stop();
+        if(!finished)
+            StartCoroutine(WaitAndWin());
+    }
+
+    private IEnumerator WaitAndWin()
+    {
         finished = true;
+        yield return new WaitForSeconds(20);
         onWin.Invoke();
         print("YOU WIN :D");
     }
