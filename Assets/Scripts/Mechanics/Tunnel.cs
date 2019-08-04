@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class Tunnel : MonoBehaviour
 {
+	[SerializeField] private float scaleDuration;
+
 	[SerializeField] private Material[] materials;
 	[SerializeField] private float scaleFactor;
 	[SerializeField] private float rotationAmount;
@@ -16,6 +18,7 @@ public class Tunnel : MonoBehaviour
 
 	private TunnelManager tunnelManager;
 	private bool doOnce = false;
+	private bool scale = true;
 
 	public int MatIndex { get; set; } = 1;
 	public int OrderInLayer { get; set; } = 1;
@@ -32,10 +35,19 @@ public class Tunnel : MonoBehaviour
 		SpawnSquare();
 	}
 
+	private void OnMouseDown()
+	{
+		if (scale)
+		{
+			scale = false;
+			transform.DOScale(5, scaleDuration);
+		}
+	}
+
 	private void SpawnSquare()
 	{
 		if (Input.GetMouseButtonDown(0) &&
-			CanClick &&
+			CanClick && !scale &&
 			SpawnedSquares != tunnelManager.MaxSquares)
 		{
 			CanClick = false;
