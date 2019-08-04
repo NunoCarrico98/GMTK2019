@@ -21,5 +21,7 @@ public class Fall : MonoBehaviour
 			.Append(transform.DORotate(rot2, 0))
 			.Append(transform.DOScale(12, .5f))
 			.SetAutoKill(true);
+
+        GetComponent<AudioSource>().Play();
 	}
 }

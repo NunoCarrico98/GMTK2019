@@ -12,6 +12,7 @@ public class VerticesDetection : MonoBehaviour
     private Camera cam;
     private Mesh mesh;
     private Vector3[] currentVertices;
+    private AudioSource source;
 
     private bool isDragging = false;
     private int closerVertice = -1;
@@ -29,6 +30,7 @@ public class VerticesDetection : MonoBehaviour
         cam = FindObjectOfType<Camera>();
         mesh = filter.mesh;
         currentVertices = mesh.vertices;
+        source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -45,6 +47,7 @@ public class VerticesDetection : MonoBehaviour
                 if (closerVertice != -1)
                 {
                     isDragging = true;
+                    source.Play();
                 }
             }
         }
@@ -56,6 +59,7 @@ public class VerticesDetection : MonoBehaviour
             {
                 closerVertice = -1;
                 isDragging = false;
+                source.Pause();
             }
         }
 

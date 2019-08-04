@@ -8,8 +8,10 @@ public class Screw : MonoBehaviour
 	[SerializeField] private float scaleAmount;
 	[SerializeField] private float scaleDuration;
 	[SerializeField] private float angle;
+	[SerializeField] private float playSoundThreshold = 0.1f;
+    [SerializeField] private AudioSource source;
 
-	private Camera cam;
+    private Camera cam;
 	private float scaleDesired = 1;
 
 	private void Awake()
@@ -35,14 +37,32 @@ public class Screw : MonoBehaviour
 
 			ScaleSquare(previousRot);
 		}
-	}
+        else if (source.isPlaying)
+            source.Pause();
+
+    }
 
 	private void ScaleSquare(float previousRot)
 	{
 		float newRot = transform.rotation.z;
 
-		if (newRot > 0 && previousRot > 0)
+
+        float mov = Mathf.Abs(newRot - previousRot);
+        print(mov);
+        if (mov >= playSoundThreshold)
+        {
+            if (!source.isPlaying)
+                source.Play();
+        }
+        else
+        {
+            if (source.isPlaying)
+                source.Pause();
+        }
+
+        if (newRot > 0 && previousRot > 0)
 		{
+
 			if (newRot > previousRot)
 			{
 				scaleDesired += scaleAmount;
