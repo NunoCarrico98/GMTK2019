@@ -11,8 +11,14 @@ public class TunnelManager : MonoBehaviour
 	[SerializeField] private float desiredSize;
 	[SerializeField] private float decreaseValue;
 
+	[SerializeField] private AudioSource source;
+	[SerializeField] private AudioClip countdown;
+	[SerializeField] private AudioClip launch;
+
 	private Camera[] cams;
 	private List<GameObject> squares;
+	private bool playCountdown = true;
+	private bool playLaunch = true;
 
 	public int MaxSquares => maxSquares;
 
@@ -41,12 +47,34 @@ public class TunnelManager : MonoBehaviour
 	{
 		if (squares.Count >= MaxSquares - 1)
 		{
+			PlaySoundCountdown();
 			yield return new WaitForSeconds(waitTime);
+			PlaySoundLaunch();
 			foreach (Camera c in cams)
 			{
 				c.orthographicSize -= decreaseValue;
 				if (c.orthographicSize <= desiredSize) c.orthographicSize = desiredSize;
 			}
+		}
+	}
+
+	private void PlaySoundCountdown()
+	{
+		if (playCountdown)
+		{
+			playCountdown = false;
+			source.clip = countdown;
+			source.Play();
+		}
+	}
+
+	private void PlaySoundLaunch()
+	{
+		if (playLaunch)
+		{
+			playLaunch = false;
+			source.clip = launch;
+			source.Play();
 		}
 	}
 }
