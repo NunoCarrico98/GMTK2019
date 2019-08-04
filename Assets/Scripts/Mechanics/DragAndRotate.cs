@@ -1,14 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragAndRotate : MonoBehaviour
 {
+	[SerializeField] private float desiredAngle;
 	[SerializeField] private float angle;
 	[SerializeField] private float colorChangeSpeed;
+	[SerializeField] private bool rotate = true;
 
 	private Camera[] cams;
-	private bool rotate = true;
+
+	public bool RotateObject
+	{
+		get
+		{
+			return rotate;
+		}
+		set
+		{
+			rotate = value;
+		}
+	}
 
 	private void Awake()
 	{
@@ -25,14 +38,21 @@ public class DragAndRotate : MonoBehaviour
 		if (Input.GetAxisRaw("Mouse Y") > .1f)
 		{
 			transform.Rotate(angle * Time.deltaTime * Input.GetAxisRaw("Mouse Y"), 0, 0);
-			if (transform.eulerAngles.x >= 85)
+			if (transform.eulerAngles.x >= desiredAngle - 5)
 			{
-				transform.eulerAngles = new Vector3(Mathf.Lerp(transform.eulerAngles.x, 90, angle * Time.deltaTime),
-					0,0);
+				transform.eulerAngles = new Vector3(Mathf.Lerp(transform.eulerAngles.x, desiredAngle, angle * Time.deltaTime),
+					transform.eulerAngles.y, transform.eulerAngles.z);
 				rotate = false;
+				StartCoroutine(LoadNextLevel());
 			}
 			ChangeBackgroundColor();
 		}
+	}
+
+	private IEnumerator LoadNextLevel()
+	{
+		yield return new WaitForSeconds(.5f);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	private void ChangeBackgroundColor()

@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff90224067a3d545a5bc367aff85947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desiredAngle: 90
   angle: 180
   colorChangeSpeed: 20
 --- !u!64 &1524118369
