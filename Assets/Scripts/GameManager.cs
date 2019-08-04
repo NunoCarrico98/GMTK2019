@@ -48,10 +48,15 @@ public class GameManager : MonoBehaviour
 			}
 
 		if (colors.All(c => c == colorToFill))
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			LoadNextScene();
 
 		renderCam.targetTexture = null;
 		RenderTexture.active = null; // added to avoid errors 
 		DestroyImmediate(rt);
+	}
+
+	public void LoadNextScene()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }
